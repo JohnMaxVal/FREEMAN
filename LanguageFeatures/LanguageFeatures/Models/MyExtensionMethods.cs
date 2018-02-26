@@ -10,7 +10,7 @@ namespace LanguageFeatures.Models
         public static decimal TotalPrices(this IEnumerable<Product> productEnum)
         {
             decimal total = 0;
-            foreach(Product prod in productEnum)
+            foreach (Product prod in productEnum)
             {
                 total += prod.Price;
             }
@@ -21,7 +21,7 @@ namespace LanguageFeatures.Models
         {
             foreach (Product prod in productEnum)
             {
-                if(prod.Category == categoryParam)
+                if (prod.Category == categoryParam)
                 {
                     yield return prod;
                 }
@@ -30,7 +30,7 @@ namespace LanguageFeatures.Models
 
         public static IEnumerable<Product> Filter(this IEnumerable<Product> productEnum, Func<Product, bool> selectorParam)
         {
-            foreach(Product prod in productEnum)
+            foreach (Product prod in productEnum)
             {
                 if (selectorParam(prod))
                 {

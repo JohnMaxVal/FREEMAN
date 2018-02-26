@@ -45,6 +45,45 @@ namespace LanguageFeatures.Controllers
             return View("Result", (object)String.Format("Category: {0}", myProduct.Category));
         }
 
+        public ViewResult FindProducts()
+        {
+            Product[] products =
+            {
+                new Product {Name = "Kayak", Price = 275M},
+                new Product {Name = "Lifejacket", Price = 48.95M},
+                new Product {Name = "Soccer ball", Price = 19.50M},
+                new Product {Name = "Corner flag", Price = 34.95M}
+            };
+
+            //var foundProducts = from match in products
+            //                    orderby match.Price descending
+            //                    select new { match.Name, match.Price };
+            var foundProducts = products.OrderByDescending(e => e.Price)
+                                     .Take(3)
+                                     .Select(e => new { e.Name, e.Price });
+
+            ////Define the array to hold the result
+            //Product[] foundProducts = new Product[3];
+            ////Sort the contents of the array
+            //Array.Sort(products, (item1, item2) =>
+            //{
+            //    return Comparer<decimal>.Default.Compare(item1.Price, item2.Price);
+            //});
+            ////Get the first three items in the array as the result
+            //Array.Copy(products, foundProducts, 3);
+
+            //Create the result
+            int count = 0;
+            StringBuilder result = new StringBuilder();
+            foreach (var p in foundProducts)
+            {
+                result.AppendFormat("Price: {0} ", p.Price);
+                if (++count == 3) { break; }
+            }
+
+            return View("Result", (object)result.ToString());
+        }
+
         public ViewResult CreateCollection()
         {
             string[] stringArray = { "apple", "orange", "plum" };

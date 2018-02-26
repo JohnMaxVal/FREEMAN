@@ -8,7 +8,7 @@ using LanguageFeatures.Models;
 namespace LanguageFeatures.Controllers
 {
     public class HomeController : Controller
-    {        
+    {
         public string Index()
         {
             return "Navigate to a URL to show an example";
@@ -32,14 +32,14 @@ namespace LanguageFeatures.Controllers
         public ViewResult CreateProduct()
         {
             //Create a new Product object
-            Product myProduct = new Product();
-
-            //Set the property values
-            myProduct.ProductID = 100;
-            myProduct.Name = "Kayak";
-            myProduct.Description = "A boat for one person";
-            myProduct.Price = 275m;
-            myProduct.Category = "Watersports";
+            Product myProduct = new Product()
+            {
+                ProductID = 100,
+                Name = "Kayak",
+                Description = "A boat for one person",
+                Price = 275m,
+                Category = "Watersports"
+            };
 
             return View("Result", (object)String.Format("Category: {0}", myProduct.Category));
         }

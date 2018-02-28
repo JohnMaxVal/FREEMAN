@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 using EssentialTools.Models;
 
 namespace EssentialTools.Controllers
@@ -19,7 +15,7 @@ namespace EssentialTools.Controllers
 
         public ActionResult Index()
         {
-            LinqValueCalculator calc = new LinqValueCalculator();
+            IValueCalculator calc = new LinqValueCalculator();
 
             ShoppingCart cart = new ShoppingCart(calc)
             {

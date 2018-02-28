@@ -1,0 +1,34 @@
+﻿using System;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using EssentialTools.Models;
+using System.Linq;
+
+namespace EssentialTools.Test
+{
+    [TestClass]
+    public class UnitTest2
+    {
+        private Product[] products =
+        {
+            new Product {Name = "Kayak", Price = 275m},
+            new Product {Name="Lifejacket", Price=48.95m},
+            new Product {Name = "Soccer ball", Price = 19.50M},
+            new Product {Name = "Corner flag", Price = 34.95M}
+        };
+
+        [TestMethod]
+        public void Sum_Products_Correctly()
+        {
+            //arrange
+            var discounter = new MinimumDiscountHelper();
+            var target = new LinqValueCalculator(discounter);
+            var goalTotal = products.Sum(e => e.Price);
+
+            //act
+            var result = target.ValueProducts(products);
+
+            //assert
+            Assert.AreEqual(goalTotal, result);
+        }
+    }
+}

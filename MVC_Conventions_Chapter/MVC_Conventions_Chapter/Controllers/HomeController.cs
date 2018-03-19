@@ -11,10 +11,10 @@ namespace MVC_Conventions_Chapter.Controllers
         public ActionResult Index()
         {
             int firstVal = 10;
-            int secondVal = 5;
+            int secondVal = 0;
             int result = firstVal / secondVal;
 
-            ViewBag.Message = "Welcome to ASP.NET MVC!";
+            //ViewBag.Message = "Welcome to ASP.NET MVC!";
 
             return View(result);
         }

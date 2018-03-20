@@ -36,5 +36,13 @@ namespace UrlsAndRoutes.Controllers
             ViewBag.CustomVariable = id;
             return View();
         }
+
+        public RedirectToRouteResult MyActionMethod()
+        {
+            string myActionUrl = Url.Action("Index", new { id = "MyID" });
+            string myRouteUrl = Url.RouteUrl(new { controller = "Home", action = "Index" });
+            // ...do smth with URL's...
+            return RedirectToAction("Index");
+        }
     }
 }

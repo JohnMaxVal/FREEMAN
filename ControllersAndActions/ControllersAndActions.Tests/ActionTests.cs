@@ -14,13 +14,10 @@ namespace ControllersAndActions.Tests
             ExampleController target = new ExampleController();
 
             // Act - call the action method
-            RedirectToRouteResult result = target.RedirectToRoute();
+            HttpStatusCodeResult result = target.StatusCode();
 
             // Assert - check the result
-            Assert.IsFalse(result.Permanent);
-            Assert.AreEqual("Example", result.RouteValues["controller"]);
-            Assert.AreEqual("Index", result.RouteValues["action"]);
-            Assert.AreEqual("MyID", result.RouteValues["ID"]);
+            Assert.AreEqual(401, result.StatusCode);
         }
     }
 }

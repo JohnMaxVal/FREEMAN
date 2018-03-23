@@ -17,9 +17,12 @@ namespace ControllersAndActions.Controllers
 
         public RedirectToRouteResult RedirectToRoute()
         {
-            TempData["Message"] = "Hello";
-            TempData["Date"] = DateTime.Now;
             return RedirectToAction("Index");
+        }
+
+        public HttpStatusCodeResult StatusCode()
+        {
+            return new HttpUnauthorizedResult();
         }
     }
 }

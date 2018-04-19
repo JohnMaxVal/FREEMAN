@@ -9,6 +9,7 @@ using MvcModels.Models;
 
 namespace MvcModels
 {
+    
     public class MvcApplication : System.Web.HttpApplication
     {
         protected void Application_Start()
@@ -18,7 +19,7 @@ namespace MvcModels
 
             //ValueProviderFactories.Factories.Insert(0, new CustomValueProviderFactory());
 
-            ModelBinders.Binders.Add(typeof(AddressSummary), new AddressSummaryBinder());
+            //ModelBinders.Binders.Add(typeof(AddressSummary), new AddressSummaryBinder());
         }
     }
 }
